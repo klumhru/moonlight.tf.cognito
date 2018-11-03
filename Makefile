@@ -12,7 +12,7 @@ init:
 	${TERRAFORM} init ${TF_CLI_ARGS_init}
 
 plan:
-	${TERRAFORM} plan -out /tmp/network.plan ${TF_CLI_ARGS_plan}
+	${TERRAFORM} plan -out /tmp/terraform.plan ${TF_CLI_ARGS_plan}
 
 test:
 	TF_CLI_ARGS_init=-backend-config=config/test-backend-config.tfvars \
@@ -21,7 +21,7 @@ test:
 	make init plan apply destroy
 
 apply:
-	${TERRAFORM} apply -auto-approve /tmp/network.plan ${TF_CLI_ARGS_apply}
+	${TERRAFORM} apply -auto-approve /tmp/terraform.plan ${TF_CLI_ARGS_apply}
 
 destroy:
 	${TERRAFORM} destroy -auto-approve ${TF_CLI_ARGS_destroy}
