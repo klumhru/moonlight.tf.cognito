@@ -16,7 +16,7 @@ test:
 	TF_CLI_ARGS_init=-backend-config=config/test-backend-config.tfvars \
 	TF_CLI_ARGS_plan=-var-file=config/test-var-file.tfvars \
 	TF_CLI_ARGS_destroy=-var-file=config/test-var-file.tfvars \
-	make init plan
+	make init plan apply destroy
 
 apply:
 	${TERRAFORM} apply -auto-approve /tmp/terraform.plan ${TF_CLI_ARGS_apply}
